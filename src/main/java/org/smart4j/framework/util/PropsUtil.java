@@ -79,7 +79,7 @@ public final class PropsUtil {
 	/**
 	 * 获取数值型属性(可指定默认值)
 	 */
-	private static int getInt(Properties props, String key, int defaultValue) {
+	public static int getInt(Properties props, String key, int defaultValue) {
 		int value = defaultValue;
 		if (props.contains(key)) {
 			value = Integer.parseInt(props.getProperty(key));

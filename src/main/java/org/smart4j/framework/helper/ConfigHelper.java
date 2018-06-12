@@ -10,7 +10,7 @@ import org.smart4j.framework.util.PropsUtil;
  * @author 鑫哲
  *
  */
-public final class ConfigHelper {
+public class ConfigHelper {
 
 	private static final Properties CONFIG_PROPS = PropsUtil.loadProps(ConfigConstant.CONFIG_FILE);
 	
@@ -61,6 +61,13 @@ public final class ConfigHelper {
 	 */
 	public static String getAppAssetPath() {
 		return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.APP_ASSET_PATH, "/asset/");
+	}
+
+	/**
+	 * 获取应用文件上传限制
+	 */
+	public static int getAppUploadLimit() {
+		return PropsUtil.getInt(CONFIG_PROPS, ConfigConstant.APP_UPLOAD_LIMIT, 10);
 	}
 	
 }

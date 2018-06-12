@@ -22,7 +22,7 @@ public final class HelperLoader {
 				BeanHelper.class, 
 				AopHelper.class, 
 				IocHelper.class, 
-				ControllerHelper.class
+				ControllerHelper.class,
 				};
 		for (Class<?> cls : classList) {
 			ClassUtil.loadClass(cls.getName(), false);

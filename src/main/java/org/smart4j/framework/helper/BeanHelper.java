@@ -13,7 +13,7 @@ import org.smart4j.framework.util.ReflectionUtil;
  * 所有对象都是从当前线程类加载器获取的class通过反射创建实例，
  * 然后存入Bean Map中，所有的对象都是单例的。
  */
-public final class BeanHelper {
+public class BeanHelper {
 
 	/**
 	 * 定义 Bean 映射(用于存放 Bean 类与 Bean 实例的映射关系)

@@ -6,14 +6,13 @@ import java.util.Map;
 import org.smart4j.framework.annotation.Inject;
 import org.smart4j.framework.util.ArrayUtil;
 import org.smart4j.framework.util.CollectionUtil;
-import org.smart4j.framework.util.ReflectionUtil;
 
 /**
  * 依赖注入助手类
  * @author 鑫哲
  *
  */
-public final class IocHelper {
+public class IocHelper {
 
 	static {
 		// 获取 IOC 容器：所有Bean类与Bean实例之间的映射关系
@@ -36,7 +35,15 @@ public final class IocHelper {
 							Object beanFieldInstance = beanMap.get(beanFieldClass);
 							if (beanFieldInstance != null) {
 								// 通过反射初始化 BeanField的值
-								ReflectionUtil.setField(beanInstance, beanField, beanFieldInstance);
+								// ReflectionUtil.setField(beanInstance, beanField, beanFieldInstance);
+								// 将字段设置为 public
+								beanField.setAccessible(true);
+								// 设置字段初始值
+								try {
+									beanField.set(beanInstance, beanFieldInstance);
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
 							}
 						}
 					}
@@ -44,5 +51,4 @@ public final class IocHelper {
 			}
 		}
 	}
-	
 }
