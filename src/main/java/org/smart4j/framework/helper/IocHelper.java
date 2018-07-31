@@ -6,6 +6,7 @@ import java.util.Map;
 import org.smart4j.framework.annotation.Inject;
 import org.smart4j.framework.util.ArrayUtil;
 import org.smart4j.framework.util.CollectionUtil;
+import org.smart4j.framework.util.ReflectionUtil;
 
 /**
  * 依赖注入助手类
@@ -35,15 +36,7 @@ public class IocHelper {
 							Object beanFieldInstance = beanMap.get(beanFieldClass);
 							if (beanFieldInstance != null) {
 								// 通过反射初始化 BeanField的值
-								// ReflectionUtil.setField(beanInstance, beanField, beanFieldInstance);
-								// 将字段设置为 public
-								beanField.setAccessible(true);
-								// 设置字段初始值
-								try {
-									beanField.set(beanInstance, beanFieldInstance);
-								} catch (Exception e) {
-									e.printStackTrace();
-								}
+								ReflectionUtil.setField(beanInstance, beanField, beanFieldInstance);
 							}
 						}
 					}

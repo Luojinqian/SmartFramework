@@ -21,13 +21,13 @@ public final class HelperLoader {
 		Class<?>[] classList = { 
 				DatabaseHelper.class,
 				ClassHelper.class, 
-				ControllerHelper.class,
 				BeanHelper.class, 
-				AopHelper.class, 
+				AopHelper.class,
 				IocHelper.class,
+				ControllerHelper.class
 				};
 		for (Class<?> cls : classList) {
-			ClassUtil.loadClass(cls.getName(), false);
+			ClassUtil.loadClass(cls.getName(), true);
 		}
 	}
 
