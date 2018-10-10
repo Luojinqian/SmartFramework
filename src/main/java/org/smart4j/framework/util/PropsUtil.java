@@ -97,7 +97,7 @@ public final class PropsUtil {
 	/**
 	 * 获取布尔型属性(可指定默认值)
 	 */
-	private static boolean getBoolean(Properties props, String key, boolean defaultValue) {
+	public static boolean getBoolean(Properties props, String key, boolean defaultValue) {
 		boolean value = defaultValue;
 		if (props.containsKey(key)) {
 			value = Boolean.parseBoolean(props.getProperty(key));

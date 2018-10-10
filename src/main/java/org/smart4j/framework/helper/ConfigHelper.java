@@ -1,9 +1,9 @@
 package org.smart4j.framework.helper;
 
-import java.util.Properties;
-
 import org.smart4j.framework.ConfigConstant;
 import org.smart4j.framework.util.PropsUtil;
+
+import java.util.Properties;
 
 /**
  * 属性文件助手类
@@ -12,8 +12,53 @@ import org.smart4j.framework.util.PropsUtil;
  */
 public class ConfigHelper {
 
+	/**
+	 * 属性文件对象
+	 */
 	private static final Properties CONFIG_PROPS = PropsUtil.loadProps(ConfigConstant.CONFIG_FILE);
-	
+
+	/**
+	 * 获取 String 类型的属性值
+	 */
+	public static String getString(String key) {
+		return PropsUtil.getString(CONFIG_PROPS, key);
+	}
+
+	/**
+	 * 获取 String 类型的属性值（可指定默认值）
+	 */
+	public static String getString(String key, String defaultValue) {
+		return PropsUtil.getString(CONFIG_PROPS, key, defaultValue);
+	}
+
+	/**
+	 * 获取 int 类型的属性值
+	 */
+	public static int getInt(String key) {
+		return PropsUtil.getInt(CONFIG_PROPS, key);
+	}
+
+	/**
+	 * 获取 int 类型的属性值（可指定默认值）
+	 */
+	public static int getInt(String key, int defaultValue) {
+		return PropsUtil.getInt(CONFIG_PROPS, key, defaultValue);
+	}
+
+	/**
+	 * 获取 boolean 类型的属性值
+	 */
+	public static boolean getBoolean(String key) {
+		return PropsUtil.getBoolean(CONFIG_PROPS, key);
+	}
+
+	/**
+	 * 获取 boolean 类型的属性值（可指定默认值）
+	 */
+	public static boolean getBoolean(String key, boolean defaultValue) {
+		return PropsUtil.getBoolean(CONFIG_PROPS, key, defaultValue);
+	}
+
 	/**
 	 * 获取JDBC驱动
 	 */

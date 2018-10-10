@@ -1,11 +1,5 @@
 package org.smart4j.framework.helper;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -13,8 +7,14 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.smart4j.framework.helper.ConfigHelper;
 import org.smart4j.framework.util.CollectionUtil;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 数据库操作助手类
@@ -47,6 +47,13 @@ public class DatabaseHelper {
 		DATA_SOURCE.setUrl(url);
 		DATA_SOURCE.setUsername(username);
 		DATA_SOURCE.setPassword(password);
+	}
+
+	/**
+	 * 获取DataSource
+	 */
+	public static DataSource getDataSource() {
+		return DATA_SOURCE;
 	}
 	
 	/**

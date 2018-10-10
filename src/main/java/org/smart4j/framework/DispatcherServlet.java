@@ -109,7 +109,7 @@ public class DispatcherServlet extends HttpServlet {
 		if (StringUtil.isNotEmpty(path)) {
 			if (path.startsWith("/")) {
 				// 重定向
-				response.sendRedirect(request.getContextPath() + path);;
+				response.sendRedirect(request.getContextPath() + path);
 			} else {
 				// 将模型数据存入request域中
 				Map<String, Object> model = view.getModel();
